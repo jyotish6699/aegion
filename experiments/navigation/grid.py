@@ -1,9 +1,9 @@
 GRID = [
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0]
+    [0, 0, 0, 1, 0],
+    [0, 1, 0, 0, 0],
+    [0, 0, 0, 1, 0],
+    [0, 0, 1, 0, 0],
+    [0, 1, 0, 0, 0]
 ]
 
 row = len(GRID)
@@ -49,9 +49,9 @@ def get_neighbor(r, c, debug = False):
         nr = r + dr
         nc = c + dc
 
-        
-        print(f"Direction {direction_name[i]} -> checking ({nr}, {nc})")
-        i = i + 1
+        if debug:
+            print(f"Direction {direction_name[i]} -> checking ({nr}, {nc})")
+            i = i + 1
 
 
         if not is_valid(nr, nc):
@@ -61,7 +61,7 @@ def get_neighbor(r, c, debug = False):
         
         if not is_walkable(nr, nc):
             if debug:
-                print("f{nr}, {nc} are BLOCKED")
+                print(f"{nr}, {nc} are BLOCKED")
             continue
 
         if debug:
@@ -74,7 +74,7 @@ def get_neighbor(r, c, debug = False):
 
 
 
-neighbors = get_neighbor(0,0, True)
+neighbors = get_neighbor(2,2)
 print(neighbors)
 
         
