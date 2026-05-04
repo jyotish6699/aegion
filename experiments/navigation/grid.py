@@ -72,10 +72,47 @@ def get_neighbor(r, c, debug = False):
     return neighbors
 
 
+# neighbors = get_neighbor(2,2)
+# print(neighbors)
+
+from collections import deque
+
+def bfs(start, goal):
+    queue = deque()
+    queue.append(start)
+
+    visited = set()
+    visited.add(start)
+    # BFS tree 
+    parent = {}
+
+    while queue:
+        current = queue.popleft()
+        if current == goal:
+            # parent[goal] = current
+            return parent
+        
+        neighbors = get_neighbor(current[0], current[1])
+        for neighbor in neighbors:
+
+            if neighbor not in visited:
+                visited.add(neighbor)
+                parent[neighbor] = current
+                queue.append(neighbor)
+
+    return parent
 
 
-neighbors = get_neighbor(2,2)
-print(neighbors)
+start = (0,0)
+goal = (2,2)
+
+parent = bfs(start, goal)
+print(parent)
+
+
+            
+
+
 
         
 
