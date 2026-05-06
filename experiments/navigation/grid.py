@@ -89,7 +89,6 @@ def bfs(start, goal):
     while queue:
         current = queue.popleft()
         if current == goal:
-            # parent[goal] = current
             return parent
         
         neighbors = get_neighbor(current[0], current[1])
@@ -103,12 +102,34 @@ def bfs(start, goal):
     return parent
 
 
-start = (0,0)
-goal = (2,2)
 
-parent = bfs(start, goal)
-print(parent)
+def backtracking(parent, start, target):
+    backtrack = []
+    node = target # goal
 
+    while node != start:
+        backtrack.append(node)
+        node = parent[node]
+    
+    backtrack.append(start)
+
+    return backtrack
+  
+
+def path(start, goal):
+    
+    parent = bfs(start, goal)
+    path = backtracking(parent, start, goal)
+
+    path.reverse()
+    return path
+
+
+
+start = (0, 0)
+goal = (2, 2)
+path = path(start, goal)
+print(path)
 
             
 
