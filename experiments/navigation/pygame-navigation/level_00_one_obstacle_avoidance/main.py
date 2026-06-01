@@ -4,10 +4,10 @@ os.environ['SDL_VIDEO_WINDOW_POS'] = "1200,100"
 
 import pygame
 
-import renderer
-import robot
+import level_00_one_obstacle_avoidance.renderer as renderer
+import level_00_one_obstacle_avoidance.robot as robot
 
-from settings import *
+from level_00_one_obstacle_avoidance.settings import *
 
 pygame.init()
 

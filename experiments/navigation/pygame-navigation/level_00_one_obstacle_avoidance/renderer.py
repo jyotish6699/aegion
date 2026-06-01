@@ -1,7 +1,7 @@
 import pygame
 
-from settings import *
-import robot
+from level_00_one_obstacle_avoidance.settings import *
+import level_00_one_obstacle_avoidance.robot as robot
 
 
 def draw(screen):
