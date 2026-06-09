@@ -1,0 +1,1 @@
+ROBOT_START = (0, 0)
